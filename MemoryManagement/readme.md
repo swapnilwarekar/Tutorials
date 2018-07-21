@@ -25,8 +25,8 @@ public class PassByValue {
 ```
 
 
-### How objects are passed to method in Java?
-In Java, objects are passed to a method by creating copy of a reference variable of an object. Means, Copy of reference variable but pointing to same object. In following example customer is getting renamed and output is "Deva". Copy of reference variable "c" is created as "customer" while passing parameter to the method. "c" and "customer" variables on stack points to the same object on the heap. When we set name as "Deva" it get replaced for "c" because it is pointing to the same object.s
+### How objects are passed to a method in Java?
+In Java, objects are passed to a method by creating copy of a reference variable of an object. Means, Copy of reference variable but pointing to same object. In following example customer is getting renamed and output is "Deva". Copy of reference variable "c" is created as "customer" while passing parameter to the method. "c" and "customer" variables on stack points to the same object on the heap. When we set name as "Deva" it get replaced for "c" because it is pointing to the same objects.
 
 ```java
 public class PassingObjectsToMethod {
