@@ -233,6 +233,17 @@ public class StringPoolExample {
 Java has in-built garbage collection mechanism. Like c programming, programmer doesn't need to call free method to free the object's memory.
 Programmer can suggest JVM to run "Garbage Collector" by calling the method "System.gc()" but programmer cannot force JVM to run the Garbage Collector. When object is being garbage collected it's finalize() method will be called. But programmer won't know when "finalize" method will be called or JVM doesn't gurantee when object has been Garbage Collected. 
 
+"finalize" method can be used only for warning purposes and not for checks. If finalize method is called and warning message is printed out then atleast programmer will be warned that something is wrong. for example,
+
+```java
+public void finalize() {
+ if (file.isOpen()) {
+ 	logger.warn("File is not closed");
+ }
+}
+
+```
+
 #### Garbage eligibility  
 
 Object which are not reachable from stack are eligible for garbage collection. 
