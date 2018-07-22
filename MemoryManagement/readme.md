@@ -77,3 +77,53 @@ public class FinalKeyWordTest {
 
 }
 ```
+
+### Escaping references
+In following example "getCustomers" method of "CustomerRecords" class returns reference to the map containing customer records.
+Here, programmer gets full access to map of customer records and can manipulate / delete records accidently. This reference to the map of Customer records is an escaping reference here.
+Escaping reference may lead system to inconsistency  
+
+```java
+public class EscapingReferenceExample {
+
+	public static void main(String[] args) {
+		
+		// Programmer can add customer without knowing the implementation of addCustomer method.
+		CustomerRecords customerRecords = new CustomerRecords();
+		customerRecords.addCustomer(new Customer("Swapnil"));
+		customerRecords.addCustomer(new Customer("Deva"));
+		customerRecords.addCustomer(new Customer("Prashant"));
+		
+		
+		
+		
+		// Now we need list of all customers to be printed out.
+		Map<String, Customer> records = customerRecords.getCustomers();
+		System.out.println("Customer Records " + records);
+		
+		// But we have escaping reference of map having customer records.
+		// Programmer can clear all the records accidently with escaped reference of customer records map.
+		// Escaping references may lead system to inconsistency.
+		records.clear();
+		System.out.println("Escaped customer records reference test " + customerRecords.getCustomers());
+		
+	}
+
+}
+
+class CustomerRecords {
+	private Map<String, Customer> records;
+	
+	public CustomerRecords() {
+		this.records = new HashMap<String, Customer>();
+	}
+	
+	public void addCustomer(Customer c) {
+		this.records.put(c.getName(), c);
+	}
+	
+	public Map<String, Customer> getCustomers() {
+		return this.records;
+	}
+}
+```
