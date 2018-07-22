@@ -65,7 +65,7 @@ public class FinalKeyWordTest {
 		// Following assignment will show the syntax error
 		// The final local variable customer2 may already have been assigned
 		
-		// customer2 = new Customer("Prashant");
+		customer2 = new Customer("Prashant");
 		
 		// It means when reference variable is marked as final then it's pointer cannot be changed to another object
 		// However we can change objects property value as follows.
