@@ -5,7 +5,7 @@ public class FinalKeyWordTest {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
-		final Customer customer1 = new Customer("Swapnil");
+		final CustomerReadOnly customer1 = new Customer("Swapnil");
 		final Customer customer2;
 		customer2 = new Customer("Deva");
 

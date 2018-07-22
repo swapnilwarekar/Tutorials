@@ -1,6 +1,6 @@
 package com.swapnil.warekar.memory;
 
-public class Customer {
+public class Customer implements CustomerReadOnly {
 	
 	private String name;
 	
@@ -12,6 +12,10 @@ public class Customer {
 		this.name = name;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.swapnil.warekar.memory.CustomerReadOnly#getName()
+	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -20,6 +24,9 @@ public class Customer {
 		this.name = name;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.swapnil.warekar.memory.CustomerReadOnly#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Customer [name=" + name + "]";
