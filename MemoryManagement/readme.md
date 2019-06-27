@@ -231,7 +231,7 @@ public class StringPoolExample {
 ### Garbage Collection
 
 Java has in-built garbage collection mechanism. Like c programming, programmer doesn't need to call free method to free the object's memory.
-Programmer can suggest JVM to run "Garbage Collector" by calling the method "System.gc()" but programmer cannot force JVM to run the Garbage Collector. When object is being garbage collected it's finalize() method will be called. But programmer won't know when "finalize" method will be called or JVM doesn't gurantee when object has been Garbage Collected. 
+Programmer can suggest JVM to run "Garbage Collector" by calling the method "System.gc()" but programmer cannot force JVM to run the Garbage Collector. When object is being garbage collected it's finalize() method will be called. But programmer won't know when "finalize" method will be called or JVM doesn't gurantee when object has been Garbage Collected. When Garbage Collector runs, all threads in your application are paused. 
 
 "finalize" method can be used only for warning purposes and not for checks. If finalize method is called and warning message is printed out then at least programmer will be warned that something is wrong. for example,
 
@@ -246,4 +246,26 @@ public void finalize() {
 
 #### Garbage eligibility  
 
-Object which are not reachable from stack are eligible for garbage collection. 
+Object which are not reachable from stack are eligible for garbage collection.
+
+
+
+#### Mark and Sweep
+
+Instead of searching objects to remove, the Garbage Collector looks for objects to retain and it rescues them. Algorithm that is used by Garbage Collector is called as Mark and Sweep. In first step Garbage Collector marks objects to be retained by following their references from stack.
+To mark the objects, execution of all thread will be paused. Then in second step Garbage Collector sweeps the objects that are not marked as live. Therefore more the Garbage and lesser live objects, Garbage Collection will be faster. 
+
+#### Generational Garbage Collection
+
+Most of the objects doesn't live for long.
+If object survives one Garbage Collection then it is likely to live forever.
+
+Generational Garbage Collection is a way to organize the heap. Heap is divided in two sections, one is called young generation and one is 
+called old generation.
+
+
+
+
+
+
+ 
